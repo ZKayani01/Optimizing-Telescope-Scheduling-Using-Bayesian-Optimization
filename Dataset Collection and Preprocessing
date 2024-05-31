@@ -1,0 +1,29 @@
+import pandas as pd
+import numpy as np
+from sklearn.model_selection import train_test_split
+
+# Load historical observation logs
+observation_logs = pd.read_csv('sdss_observation_logs.csv')
+
+# Load weather data
+weather_data = pd.read_csv('noaa_weather_data.csv')
+
+# Load astronomical object catalogs
+gaia_catalog = pd.read_csv('gaia_catalog.csv')
+
+# Merge datasets on common keys (e.g., date, location)
+# Assume 'date' and 'location' are common keys
+merged_data = pd.merge(observation_logs, weather_data, on=['date', 'location'])
+merged_data = pd.merge(merged_data, gaia_catalog, on='object_id')
+
+# Preprocessing: handling missing values, encoding categorical variables, etc.
+merged_data.fillna(method='ffill', inplace=True)
+merged_data = pd.get_dummies(merged_data, columns=['weather_condition', 'object_type'])
+
+# Feature and target selection
+X = merged_data.drop(columns=['optimal_schedule'])
+y = merged_data['optimal_schedule']
+
+# Split data into training, validation, and test sets
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
+X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
