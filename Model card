@@ -1,0 +1,45 @@
+# Model Card
+
+
+
+## Model Description
+
+**Input:** The inputs to the model are the observational logs, weather conditions, and celestial object characteristics. Specifically, the features include:
+
+Date and time of observation
+Weather conditions (cloud cover, humidity, temperature, wind speed)
+Telescope availability (binary indicator)
+Celestial object data (object type, brightness, right ascension, declination)
+
+**Output:** The model outputs a scheduling priority score for each potential observation, which indicates the suitability and importance of scheduling the observation at a given time. This score is used to optimize the telescope's schedule.
+
+**Model Architecture:** The model architecture used is a Random Forest Regressor due to its robustness in handling diverse types of input data and its ability to model complex interactions between features. The architecture consists of:
+
+100 decision trees (estimators)
+Each tree with a maximum depth of 10
+Bootstrap sampling to ensure variability among the trees
+Mean squared error (MSE) as the criterion for measuring the quality of splits
+
+## Performance
+
+Summary Graph or Metrics:
+
+Root Mean Squared Error (RMSE): The model's RMSE on the validation set is 5.3, indicating the average error in the scheduling priority score.
+R-squared (R²): The model's R² score is 0.82, suggesting that 82% of the variance in the scheduling priority can be explained by the model.
+Feature Importance: Analysis shows that weather conditions, particularly cloud cover and humidity, are the most significant features affecting the scheduling priority.
+Performance Measurement:
+
+The performance was measured using a train-validation split (80-20) on the dataset.
+Cross-validation was performed with 5 folds to ensure the model's generalizability.
+
+## Limitations
+
+Weather Data Accuracy: The model's performance heavily relies on the accuracy of weather forecasts. Inaccurate weather data can lead to suboptimal scheduling decisions.
+Temporal Changes: The model may not adapt well to rapid changes in weather conditions or telescope availability without frequent retraining.
+Bias: Observational biases in the dataset, such as overrepresentation of certain celestial objects, might affect the model's generalization to different observational priorities.
+
+## Trade-offs
+
+While the Random Forest model provides a balance between performance and interpretability, it is still less interpretable than simpler models like linear regression. This trade-off is necessary to capture the complex relationships in the data.
+Training a Random Forest model with 100 trees can be computationally intensive, particularly with large datasets. This trade-off is made to achieve higher prediction accuracy.
+The model performs well on historical data, but its performance may degrade if the real-time conditions deviate significantly from the training data. Continuous monitoring and retraining are required to mitigate this issue.
