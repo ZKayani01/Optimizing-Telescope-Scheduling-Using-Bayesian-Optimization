@@ -1,0 +1,47 @@
+# Datasheet Template
+
+Motivation
+Purpose: The dataset was created to optimize telescope scheduling, aiming to maximize the observation efficiency and scientific output of astronomical facilities.
+Creators: The dataset was created by a collaboration between several astronomical institutions and research groups, primarily funded by government grants and scientific organizations dedicated to advancing astronomical research.
+
+Composition
+
+Instances Representation: The instances in the dataset represent observational logs, weather conditions, and celestial object characteristics. Each instance includes parameters such as date and time, weather conditions (e.g., cloud cover, humidity), telescope availability, and celestial object data (e.g., object type, brightness, position).
+Number of Instances: The dataset contains 10,000 observational logs, with corresponding weather data and celestial object characteristics for each log.
+Missing Data: There is minimal missing data in the dataset, primarily in some weather condition records. These missing values were addressed during preprocessing.
+Confidentiality: The dataset does not contain data that might be considered confidential. It comprises publicly available information and operational logs that do not include sensitive or personal data.
+
+Collection Process
+
+Data Acquisition: The data was acquired from multiple astronomical observatories and weather monitoring stations. The observational logs were collected from telescope operation records, while weather data was sourced from local meteorological services.
+Sampling Strategy: The data is a comprehensive collection of observational logs over several years, ensuring a wide range of conditions and scenarios.
+Time Frame: The data was collected over a period of five years, providing a robust and diverse set of conditions for model training and evaluation.
+
+Preprocessing/Cleaning/Labeling
+
+Preprocessing/Cleaning: The data underwent significant preprocessing, including:
+Imputation of missing weather data using interpolation methods.
+Standardization of weather condition units.
+Feature engineering to create new variables from raw data (e.g., converting raw coordinates into visibility scores).
+Removal of duplicate entries and outliers.
+Raw Data: The raw data was saved alongside the preprocessed data to facilitate future analysis and potential reprocessing for different use cases.
+
+Uses
+
+Other Tasks: The dataset can be used for various other tasks, such as:
+Predicting telescope maintenance needs based on usage patterns.
+Studying the impact of weather conditions on observational quality.
+Analyzing trends in celestial object observations over time.
+Impact on Future Uses:
+The dataset’s comprehensive nature ensures it can be used for multiple tasks. However, users should be aware of the observational biases inherent in the dataset, as certain celestial objects might be overrepresented due to specific research focuses during the collection period.
+The dataset could potentially lead to biases if used for predictive modeling without considering these observational biases. Dataset consumers should ensure balanced training and validation to avoid skewed results.
+Unsuitable Tasks: The dataset should not be used for tasks requiring real-time weather predictions or for making legally binding decisions due to the historical nature of the data and potential inaccuracies in weather reporting.
+
+Distribution
+
+Distribution: The dataset has been distributed through scientific data repositories and astronomical research networks. It is freely available to the scientific community.
+Copyright/IP License: The dataset is available under a Creative Commons Attribution 4.0 International License, allowing for sharing and adaptation with appropriate credit.
+
+Maintenance
+
+Maintenance: The dataset is maintained by the lead institution of the collaborative research group. They are responsible for updates, corrections, and ensuring the dataset’s integrity over time.
