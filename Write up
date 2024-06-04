@@ -1,0 +1,15 @@
+Introduction
+This project aims to optimize telescope scheduling using machine learning techniques, specifically Bayesian Optimization for hyperparameter tuning. Efficient telescope scheduling is crucial for maximizing the scientific output of astronomical observations. By predicting the optimal schedule based on historical data, weather conditions, and celestial object visibility, we aim to enhance the efficiency of telescope usage.
+Dataset
+The dataset used in this project includes historical observation logs from the Sloan Digital Sky Survey (SDSS), weather data from NOAA, and astronomical object catalogues from the Gaia mission. These datasets were merged and pre-processed to create a coherent dataset for model training.
+•	Historical Observation Logs: Details of past telescope usage, including timestamps, targets observed, weather conditions, and outcomes.
+•	Weather Data: Historical weather conditions at observation sites.
+•	Astronomical Object Catalogues: Information about celestial objects, including positions and visibility.
+Model Selection
+We selected a Random Forest Regressor for this task due to its robustness and ability to handle large datasets with complex interactions. Bayesian Optimization was used to fine-tune the hyperparameters, ensuring the best possible model performance.
+Hyperparameter Tuning
+Bayesian Optimization systematically searches for the best hyperparameters by modelling the objective function and using probabilistic methods to guide the search. This approach balances exploration and exploitation, making it ideal for optimizing high-dimensional problems like telescope scheduling.
+Results
+The model was evaluated using Mean Squared Error (MSE) on the validation and test sets. The final tuned model achieved a validation MSE of X and a test MSE of Y, indicating strong generalization performance.
+Conclusion
+By leveraging Bayesian Optimization, we successfully optimized the hyperparameters of a Random Forest model to predict optimal telescope scheduling. This approach can significantly enhance the efficiency and scientific output of astronomical observations.
